@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameForge</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <header>
+        <h1>내 게임 플랫폼</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="games.html">게임 목록</a></li>
+                <li><a href="create.html">내 게임 만들기</a></li>
+                <li><a href="#">로그인</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>게임 만들기</h2>
+        <div id="editor-container">
+            <div id="tools">
+                <button onclick="selectTool('block')">🧱 블록</button>
+                <button onclick="selectTool('player')">🎮 플레이어</button>
+                <button onclick="clearCanvas()">🗑️ 초기화</button>
+                <button onclick="saveGame()">💾 저장</button>
+            </div>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 내 게임 플랫폼</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let selectedTool = 'block';
+        let objects = [];
+
+        function selectTool(tool) {
+            selectedTool = tool;
+        }
+
+        canvas.addEventListener("click", (event) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            objects.push({ x, y, type: selectedTool });
+            drawObjects();
+        });
+
+        function drawObjects() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            objects.forEach(obj => {
+                if (obj.type === 'block') {
+                    ctx.fillStyle = "gray";
+                    ctx.fillRect(obj.x, obj.y, 40, 40);
+                } else if (obj.type === 'player') {
+                    ctx.fillStyle = "blue";
+                    ctx.beginPath();
+                    ctx.arc(obj.x + 20, obj.y + 20, 20, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            });
+        }
+
+        function clearCanvas() {
+            objects = [];
+            drawObjects();
+        }
+
+        function saveGame() {
+            localStorage.setItem("savedGame", JSON.stringify(objects));
+            alert("게임이 저장되었습니다!");
+        }
+    </script>
+</body>
+</html>

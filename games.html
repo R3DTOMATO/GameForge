@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameForge</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <header>
+        <h1>내 게임 플랫폼</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="games.html">게임 목록</a></li>
+                <li><a href="create.html">내 게임 만들기</a></li>
+                <li><a href="#">로그인</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>사용자가 만든 게임</h2>
+        <div id="game-list">
+            <!-- JavaScript로 게임 목록 동적 생성 -->
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 내 게임 플랫폼</p>
+    </footer>
+
+    <script>
+        const games = [
+            { id: 1, title: "첫 번째 게임", description: "간단한 플랫포머 게임", link: "game1.html" },
+            { id: 2, title: "두 번째 게임", description: "퍼즐 게임", link: "game2.html" },
+            { id: 3, title: "세 번째 게임", description: "탑다운 슈팅 게임", link: "game3.html" }
+        ];
+
+        function loadGames() {
+            const gameList = document.getElementById("game-list");
+            games.forEach(game => {
+                const gameCard = document.createElement("div");
+                gameCard.className = "game-card";
+                gameCard.innerHTML = `
+                    <h3>${game.title}</h3>
+                    <p>${game.description}</p>
+                    <a href="${game.link}">플레이하기</a>
+                `;
+                gameList.appendChild(gameCard);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", loadGames);
+    </script>
+</body>
+</html>

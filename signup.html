@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <script src="firebase-config.js" type="module"></script> <!-- Firebase 스크립트 -->
+</head>
+<body>
+    <h2>회원가입</h2>
+    <input type="email" id="email" placeholder="이메일">
+    <input type="password" id="password" placeholder="비밀번호">
+    <button onclick="signup(document.getElementById('email').value, document.getElementById('password').value)">가입하기</button>
+    <p>이미 계정이 있나요? <a href="login.html">로그인</a></p>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <script src="firebase-config.js" type="module"></script> <!-- Firebase 스크립트 -->
+</head>
+<body>
+    <h2>로그인</h2>
+    <input type="email" id="email" placeholder="이메일">
+    <input type="password" id="password" placeholder="비밀번호">
+    <button onclick="login(document.getElementById('email').value, document.getElementById('password').value)">로그인</button>
+    <button onclick="googleLogin()">Google 로그인</button>
+    <p>계정이 없나요? <a href="signup.html">회원가입</a></p>
+</body>
+</html>
