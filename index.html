@@ -11,10 +11,12 @@
         <h1>내 게임 플랫폼</h1>
         <nav>
             <ul>
-                <li><a href="/index.html">홈</a></li>
-                <li><a href="/games.html">게임 목록</a></li>
-                <li><a href="/create.html">내 게임 만들기</a></li>
-                <li><a href="/login.html">로그인</a></li>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="games.html">게임 목록</a></li>
+                <li><a href="create.html">내 게임 만들기</a></li>
+                <li><a href="create3d.html">3D 게임 만들기</a></li>
+                <li><a href="login.html">로그인</a></li>
+                
             </ul>
         </nav>
     </header>
@@ -35,7 +37,9 @@
             window.location.href = "/create.html";
         }
     </script>
-
+<!-- index.html 하단에 추가 -->
+<script type="module" src="firebase-config.js"></script>
+<button id="logout-btn" style="display: none;" onclick="logout()">로그아웃</button>
 <!-- Firebase SDK 로드 -->
 
 

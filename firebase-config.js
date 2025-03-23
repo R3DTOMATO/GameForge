@@ -9,7 +9,7 @@
     apiKey: "AIzaSyBK3zgRRbljFIM5CaNPwVtV5vR5AkxVntM",
     authDomain: "gameforge-0509a.firebaseapp.com",
     projectId: "gameforge-0509a",
-    storageBucket: "gameforge-0509a.firebasestorage.app",
+    storageBucket: "gameforge-0509a.appspot.com",
     messagingSenderId: "200416178504",
     appId: "1:200416178504:web:578fea7e9e8aac1b02837d",
     measurementId: "G-75V29Y6F3C"
@@ -63,6 +63,7 @@
     // 🔹 로그인 상태 유지
     onAuthStateChanged(auth, (user) => {
         if (user) {
+            console.log("JWT 토큰:", user.accessToken);  // JWT 토큰 확인
             console.log("현재 로그인된 사용자:", user.email);
             document.getElementById("logout-btn").style.display = "block";
         } else {
